@@ -24,7 +24,10 @@ func initCharacter() Character {
 }
 
 func displayInfo(player Character) {
-	fmt.Println(player.name)
+	fmt.Println("Name:", player.name)
+	fmt.Println("Class:", player.class)
+	fmt.Println("Level:", player.level)
+	fmt.Println("HP:", player.hp_a, "/", player.hp_max)
 }
 
 func main() {
