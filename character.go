@@ -30,5 +30,5 @@ func displayInfo(player Character) {
 func main() {
 	player := initCharacter()
 
-	_ = player
+	displayInfo(player)
 }
