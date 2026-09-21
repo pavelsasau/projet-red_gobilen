@@ -29,9 +29,3 @@ func displayInfo(player Character) {
 	fmt.Println("Level:", player.level)
 	fmt.Println("HP:", player.hp_a, "/", player.hp_max)
 }
-
-func main() {
-	player := initCharacter()
-
-	displayInfo(player)
-}
