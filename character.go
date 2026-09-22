@@ -8,6 +8,7 @@ type Character struct {
 	level     int
 	hp_max    int
 	hp_a      int
+	gold      int
 	inventory []string
 }
 
@@ -19,6 +20,7 @@ func initCharacter() Character {
 	player.level = 1
 	player.hp_max = 100
 	player.hp_a = 100
+	player.gold = 100
 	player.inventory = []string{
 		"Potion de vie",
 		"Potion de vie",
@@ -32,6 +34,7 @@ func displayInfo(player Character) {
 	fmt.Println("Name:", player.name)
 	fmt.Println("Class:", player.class)
 	fmt.Println("Level:", player.level)
+	fmt.Println("Gold:", player.gold)
 	fmt.Println("HP:", player.hp_a, "/", player.hp_max)
 	fmt.Println()
 }

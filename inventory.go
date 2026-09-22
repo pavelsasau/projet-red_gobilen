@@ -12,6 +12,11 @@ func accessInventory(player Character) {
 
 // Ajoute un objet à l'inventaire
 func addInventory(c *Character, item string) {
+	if len(c.inventory) >= 10 {
+		fmt.Println("Inventaire plein.")
+		return
+	}
+
 	c.inventory = append(c.inventory, item)
 	fmt.Printf("Vous avez obtenu : %s !\n", item)
 }
