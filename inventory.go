@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// Parcourt et affiche l'inventaire
+// Перебирает и показывает инвентарь
 func accessInventory(player Character) {
 	fmt.Println("Inventaire:")
 
@@ -34,5 +36,13 @@ func removeInventory(c *Character, item string) bool {
 	return false
 }
 
-// Parcourt et affiche l'inventaire
-// Перебирает и показывает инвентарь
+// Vérifie si le joueur possède un objet en quantité suffisante sans le retirer
+func hasItem(c *Character, item string, count int) bool {
+	found := 0
+	for _, slot := range c.Inventory {
+		if slot == item {
+			found++
+		}
+	}
+	return found >= count
+}

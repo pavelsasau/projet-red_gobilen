@@ -45,7 +45,11 @@ func characterCreation() Character {
 	// 2. Formatage : Première lettre en Majuscule, le reste en minuscules
 	name = strings.Title(strings.ToLower(name))
 
-	// 3. Choix de la classe
+	// 3. Choix de la classe*
+	var className string
+	var MaxHP int
+
+for {
 	fmt.Println("\nChoisissez votre classe :")
 	fmt.Println("1. Humain (100 PV)")
 	fmt.Println("2. Elfe (80 PV)")
@@ -55,19 +59,22 @@ func characterCreation() Character {
 	var choice int
 	fmt.Scan(&choice)
 
-	MaxHP := 100
-	className := "Humain"
-
-	switch choice {
-	case 2:
-		className = "Elfe"
-		MaxHP = 80
-	case 3:
-		className = "Nain"
-		MaxHP = 120
-	default:
-		fmt.Println("Choix par défaut : Humain")
-	}
+	if choice == 1 {
+        className = "Humain"
+        MaxHP = 100
+        break // Choix valide, on sort de la boucle !
+    } else if choice == 2 {
+        className = "Elfe"
+        MaxHP = 80
+        break // Choix valide, on sort de la boucle !
+    } else if choice == 3 {
+        className = "Nain"
+        MaxHP = 120
+        break // Choix valide, on sort de la boucle !
+    } else {
+        fmt.Println("\nChoix invalide ! Veuillez rechoisir une classe parmi les options indiquées.")
+    }
+}
 
 	// 4. Initialisation avec 50% des PV max et inventaire de base
 	return Character{

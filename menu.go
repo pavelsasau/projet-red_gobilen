@@ -11,6 +11,7 @@ func menu(player *Character) {
 		fmt.Println("1. Informations du personnage")
 		fmt.Println("2. Inventaire")
 		fmt.Println("3. Marchand")
+		fmt.Println("4. Forgeron")
 		fmt.Println("0. Quitter")
 		fmt.Print("Votre choix : ")
 
@@ -34,6 +35,9 @@ func menu(player *Character) {
 			fmt.Println()
 			merchantMenu(player)
 
+		case 4:
+			fmt.Println()
+			blacksmithMenu(player)
 		case 0:
 			return
 
