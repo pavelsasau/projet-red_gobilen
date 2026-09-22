@@ -35,3 +35,14 @@ func displayInfo(player Character) {
 	fmt.Println("HP:", player.hp_a, "/", player.hp_max)
 	fmt.Println()
 }
+
+// Vérifie si le personnage est mort et lui rend 50 % de ses PV maximum.
+// Проверяет, умер ли персонаж, и восстанавливает ему 50% максимального здоровья.
+func isDead(player *Character) {
+	if player.hp_a <= 0 {
+		player.hp_a = player.hp_max / 2
+
+		fmt.Println("Le personnage est mort.")
+		fmt.Println("Il revient avec", player.hp_a, "HP.")
+	}
+}
