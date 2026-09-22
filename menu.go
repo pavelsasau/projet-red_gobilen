@@ -13,7 +13,7 @@ func menu(player *Character) {
 		fmt.Println("3. Marchand")
 		fmt.Println("0. Quitter")
 		fmt.Print("Votre choix : ")
-		
+
 		// Lit le choix de l'utilisateur et l'enregistre dans choice.
 		// Считывает выбор пользователя и сохраняет его в choice.
 		var choice int
@@ -23,12 +23,15 @@ func menu(player *Character) {
 		// Выполняет действие в зависимости от выбора пользователя.
 		switch choice {
 		case 1:
+			fmt.Println()
 			displayInfo(*player)
 
 		case 2:
+			fmt.Println()
 			accessInventory(*player)
 
 		case 3:
+			fmt.Println()
 			merchantMenu(player)
 
 		case 0:
