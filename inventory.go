@@ -31,22 +31,3 @@ func removeInventory(c *Character, item string) bool {
 
 // Parcourt et affiche l'inventaire
 // Перебирает и показывает инвентарь
-func takePot(player *Character) {
-	for i, item := range player.inventory {
-
-		if item == "Potion de vie" {
-			player.hp_a = player.hp_a + 50
-
-			if player.hp_a > player.hp_max {
-				player.hp_a = player.hp_max
-			}
-
-			player.inventory = append(
-				player.inventory[:i],
-				player.inventory[i+1:]...,
-			)
-
-			return
-		}
-	}
-}
