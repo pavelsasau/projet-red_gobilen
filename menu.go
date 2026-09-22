@@ -6,12 +6,14 @@ import "fmt"
 // Показывает пункты главного меню.
 func menu(player *Character) {
 	for {
+		fmt.Printf("\nBienvenue %s le %s !\n", player.Name, player.Class)
 		fmt.Println("=== MENU PRINCIPAL ===")
 		fmt.Println("1. Informations du personnage")
 		fmt.Println("2. Inventaire")
 		fmt.Println("3. Marchand")
 		fmt.Println("0. Quitter")
-
+		fmt.Print("Votre choix : ")
+		
 		// Lit le choix de l'utilisateur et l'enregistre dans choice.
 		// Считывает выбор пользователя и сохраняет его в choice.
 		var choice int

@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	player := initCharacter()
+	player := characterCreation()
 
 	menu(&player)
 }

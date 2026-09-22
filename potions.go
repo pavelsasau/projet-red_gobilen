@@ -6,18 +6,18 @@ import (
 )
 //Posion de Vie
 func takePot(player *Character) {
-	for i, item := range player.inventory {
+	for i, item := range player.Inventory {
 
 		if item == "Potion de vie" {
-			player.hp_a = player.hp_a + 50
+			player.CurrentHP = player.CurrentHP + 50
 
-			if player.hp_a > player.hp_max {
-				player.hp_a = player.hp_max
+			if player.CurrentHP > player.MaxHP {
+				player.CurrentHP = player.MaxHP
 			}
 
-			player.inventory = append(
-				player.inventory[:i],
-				player.inventory[i+1:]...,
+			player.Inventory = append(
+				player.Inventory[:i],
+				player.Inventory[i+1:]...,
 			)
 
 			return

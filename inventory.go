@@ -5,28 +5,28 @@ import "fmt"
 func accessInventory(player Character) {
 	fmt.Println("Inventaire:")
 
-	for _, item := range player.inventory {
+	for _, item := range player.Inventory {
 		fmt.Println(item)
 	}
 }
 
 // Ajoute un objet à l'inventaire
 func addInventory(c *Character, item string) {
-	if len(c.inventory) >= 10 {
+	if len(c.Inventory) >= 10 {
 		fmt.Println("Inventaire plein.")
 		return
 	}
 
-	c.inventory = append(c.inventory, item)
+	c.Inventory = append(c.Inventory, item)
 	fmt.Printf("Vous avez obtenu : %s !\n", item)
 }
 
 // Retire un objet de l'inventaire
 func removeInventory(c *Character, item string) bool {
-	for i, slot := range c.inventory {
+	for i, slot := range c.Inventory {
 		if slot == item {
 			// Supprime l'élément à l'index i
-			c.inventory = append(c.inventory[:i], c.inventory[i+1:]...)
+			c.Inventory = append(c.Inventory[:i], c.Inventory[i+1:]...)
 			return true
 		}
 	}
