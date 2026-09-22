@@ -13,12 +13,17 @@ type Character struct {
 
 func initCharacter() Character {
 	player := Character{}
+
 	player.name = "test"
 	player.class = "Humains"
 	player.level = 1
 	player.hp_max = 100
 	player.hp_a = 100
-	player.inventory = []string{}
+	player.inventory = []string{
+		"Potion de vie",
+		"Potion de vie",
+		"Potion de vie",
+	}
 
 	return player
 }
@@ -28,4 +33,5 @@ func displayInfo(player Character) {
 	fmt.Println("Class:", player.class)
 	fmt.Println("Level:", player.level)
 	fmt.Println("HP:", player.hp_a, "/", player.hp_max)
+	fmt.Println()
 }
