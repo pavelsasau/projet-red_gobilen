@@ -50,10 +50,12 @@ func buyItems(c *Character, itemName string, price int){
 		fmt.Printf("\nVous n'avez pas assez d'or pour acheter %s ! (Prix : %d Gold, Solde : %d Gold)\n", itemName, price, c.Gold)
 		return
 	}
-	// 2. Déduction de l'or
-	c.Gold -= price
-	// 3. Ajout de l'objet à l'inventaire
-	addInventory(c, itemName)
+	// 2. Ajout de l'objet à l'inventaire
+	if addInventory(c, itemName) {
+		c.Gold -= price // 3. Déduction de l'or si l'objet peut être ajouter a l'inventaire
 	// 4. Confirmation de l'achat
 	fmt.Printf("\nAchat réussi : %s pour %d pièces d'or ! Solde restant : %d Gold.\n", itemName, price, c.Gold)
+	} else {
+		fmt.Println("L'achat a été annulé car votre inventaire est plein.")
+	}
 }

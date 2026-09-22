@@ -11,14 +11,14 @@ func accessInventory(player Character) {
 }
 
 // Ajoute un objet à l'inventaire
-func addInventory(c *Character, item string) {
-	if len(c.Inventory) >= 10 {
-		fmt.Println("Inventaire plein.")
-		return
-	}
+func addInventory(c *Character, item string) bool {
+    if len(c.Inventory) >= 10 { // Limite d'inventaire (Tâche 12)
+        fmt.Println("Inventaire plein ! Impossible d'ajouter l'objet.")
+        return false // Échec de l'ajout
+    }
 
-	c.Inventory = append(c.Inventory, item)
-	fmt.Printf("Vous avez obtenu : %s !\n", item)
+    c.Inventory = append(c.Inventory, item)
+    return true // Succès de l'ajout
 }
 
 // Retire un objet de l'inventaire
