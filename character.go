@@ -8,16 +8,15 @@ import (
 )
 
 type Character struct {
-	Name      	string
-	Class     	string
-	Level     	int
-	MaxHP    	int
-	CurrentHP   int
-	Gold      	int
-	Inventory 	[]string
+	Name      string
+	Class     string
+	Level     int
+	MaxHP     int
+	CurrentHP int
+	Gold      int
+	Skill     []string
+	Inventory []string
 }
-
-
 
 func characterCreation() Character {
 	reader := bufio.NewReader(os.Stdin)
@@ -32,7 +31,7 @@ func characterCreation() Character {
 		// Verification : uniquement des lettres
 		valid := true
 		for _, char := range name {
-			if (char < 'a' || char > 'z') && (char <'A' || char > 'Z'){
+			if (char < 'a' || char > 'z') && (char < 'A' || char > 'Z') {
 				valid = false
 				break
 			}
@@ -61,7 +60,7 @@ func characterCreation() Character {
 
 	switch choice {
 	case 2:
-		className ="Elfe"
+		className = "Elfe"
 		MaxHP = 80
 	case 3:
 		className = "Nain"
@@ -72,13 +71,14 @@ func characterCreation() Character {
 
 	// 4. Initialisation avec 50% des PV max et inventaire de base
 	return Character{
-		Name: 		name,
-		Class: 		className,
-		Level: 		1,
-		MaxHP: 		MaxHP,
-		CurrentHP: 	MaxHP / 2, // 50% des PV Max
-		Gold: 100,
-		Inventory: 	[]string{"Potion de vie","Potion de vie","Potion de vie"},
+		Name:      name,
+		Class:     className,
+		Level:     1,
+		MaxHP:     MaxHP,
+		CurrentHP: MaxHP / 2, // 50% des PV Max
+		Gold:      100,
+		Inventory: []string{"Potion de vie", "Potion de vie", "Potion de vie"},
+		Skill:     []string{"Coup de poing"},
 	}
 }
 
