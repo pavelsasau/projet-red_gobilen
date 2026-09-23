@@ -19,6 +19,7 @@ type Character struct {
 	Equip     Equipment // Nouveau champ pour les équipements portés
 	MaxInventory    int // Capacité max (par défaut : 10)
 	UpgradeCount    int // Nombre d'améliorations déjà achetées (max : 3)
+	
 }
 
 func characterCreation() Character {

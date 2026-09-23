@@ -79,7 +79,7 @@ func useItem(c *Character, item string) {
 	case "Potion de poison":
 		fmt.Println("\nLa potion de poison ne peut être utilisée que pendant un combat !")
 	case "Livre de Sort : Boule de Feu":
-		spellBook(c, item)
+		spellBook(c, "Boule de Feu")
 	case "Chapeau de l'aventurier", "Tunique de l'aventurier", "Bottes de l'aventurier":
 		equipItem(c, item)
 	default:
