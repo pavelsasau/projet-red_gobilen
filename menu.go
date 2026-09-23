@@ -12,6 +12,7 @@ func menu(player *Character) {
 		fmt.Println("2. Inventaire")
 		fmt.Println("3. Marchand")
 		fmt.Println("4. Forgeron")
+		fmt.Println("5. Entraînement")
 		fmt.Println("0. Quitter")
 		fmt.Print("Votre choix : ")
 
@@ -38,6 +39,9 @@ func menu(player *Character) {
 		case 4:
 			fmt.Println()
 			blacksmithMenu(player)
+		case 5:
+			fmt.Println()
+    		trainingFight(player)
 		case 0:
 			return
 

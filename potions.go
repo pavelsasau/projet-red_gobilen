@@ -1,9 +1,7 @@
 package main 
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
+
 //Posion de Vie
 func takePot(player *Character) {
 	for i, item := range player.Inventory {
@@ -26,20 +24,23 @@ func takePot(player *Character) {
 }
 // Posion de Poison
 // Applique l'effet visuel du poison sur le monstre pendant 3 secondes
-func poisonPot(m *Monster){
-	fmt.Printf("Vous lancer une potion de poison sur %s !\n", m.Name)
+func poisonPot(m *Monster) {
+	m.PoisonTurns = 3
+	fmt.Printf("\n🧪 Vous lancez une Potion de poison sur %s !\n", m.Name)
+	fmt.Printf("%s est empoisonné pour 3 tours !\n", m.Name)
+}
 
-	// Boucle de 3 tours (1 fois par seconde)
-	for i := 1; i <= 3; i++ {
-		time.Sleep(1 * time.Second) // Pause d'une seconde
-
-		m.CurrentHP -= 10 // Retire 10 PV au MONSTRE
-		// Sécurité pour ne pas descendre en dessous de 0 PV
+func applyPoisonDamage(m *Monster) {
+	if m.PoisonTurns > 0 {
+		damage := 10
+		m.CurrentHP -= damage
 		if m.CurrentHP < 0 {
 			m.CurrentHP = 0
 		}
 
-		fmt.Printf("Le poison brûle %s... (-10) | PV restant : %d/%d\n", m.Name, m.CurrentHP, m.MaxHP)
+		m.PoisonTurns--
+		fmt.Printf("\n🟢 Le poison brûle %s... (-%d PV) | PV restants : %d/%d (Tours de poison restants : %d)\n",
+			m.Name, damage, m.CurrentHP, m.MaxHP, m.PoisonTurns)
 	}
 }
 

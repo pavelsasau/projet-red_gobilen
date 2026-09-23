@@ -97,3 +97,47 @@ func upgradeInventorySlot(c *Character) {
 	c.UpgradeCount++
 	fmt.Printf("\nInventaire agrandi ! Nouvelle capacité : %d emplacements (Améliorations : %d/3).\n", c.MaxInventory, c.UpgradeCount)
 }
+
+// Pour l'utilisation d'objet en combat
+func useItemFight(c *Character, m *Monster, item string) {
+	switch item {
+	case "Potion de vie":
+		takePot(c)
+		removeInventory(c, item)
+
+	case "Potion de poison":
+		poisonPot(m)
+		removeInventory(c, item)
+
+	default:
+		fmt.Printf("\nL'objet '%s' ne peut pas être utilisé en combat.\n", item)
+	}
+}
+
+func accessInventoryFight(c *Character, m *Monster) {
+	if len(c.Inventory) == 0 {
+		fmt.Println("\nVotre inventaire est vide.")
+		return
+	}
+
+	fmt.Println("\n=== INVENTAIRE (COMBAT) ===")
+	for i, item := range c.Inventory {
+		fmt.Printf("%d. %s\n", i+1, item)
+	}
+	fmt.Println("0. Retour")
+	fmt.Print("Choisissez un objet à utiliser : ")
+
+	var choice int
+	fmt.Scan(&choice)
+
+	if choice == 0 {
+		return
+	}
+
+	if choice > 0 && choice <= len(c.Inventory) {
+		selectedItem := c.Inventory[choice-1]
+		useItemFight(c, m, selectedItem)
+	} else {
+		fmt.Println("Choix invalide.")
+	}
+}

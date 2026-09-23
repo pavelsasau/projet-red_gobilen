@@ -7,6 +7,7 @@ type Monster struct {
 	MaxHP     int
 	CurrentHP int
 	Attack    int
+	PoisonTurns int // Nombre de tours de poison restants
 }
 
 func initGoblin() Monster {
