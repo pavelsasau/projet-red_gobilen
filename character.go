@@ -16,6 +16,7 @@ type Character struct {
 	Gold      int
 	Skill     []string
 	Inventory []string
+	Equip     Equipment // Nouveau champ pour les équipements portés
 }
 
 func characterCreation() Character {
@@ -95,7 +96,18 @@ func displayInfo(player Character) {
 	fmt.Println("Level:", player.Level)
 	fmt.Println("Gold:", player.Gold)
 	fmt.Println("HP:", player.CurrentHP, "/", player.MaxHP)
+	fmt.Println("\n--- ÉQUIPEMENTS PORTÉS ---")
+	fmt.Printf("Tête  : %s\n", showEquip(player.Equip.Head))
+	fmt.Printf("Torse : %s\n", showEquip(player.Equip.Body))
+	fmt.Printf("Pieds : %s\n", showEquip(player.Equip.Feet))
 	fmt.Println()
+}
+
+func showEquip(item string) string {
+	if item == "" {
+		return "Aucun"
+	}
+	return item
 }
 
 // Vérifie si le personnage est mort et lui rend 50 % de ses PV maximum.
@@ -107,4 +119,10 @@ func isDead(player *Character) {
 		fmt.Println("Le personnage est mort.")
 		fmt.Println("Il revient avec", player.CurrentHP, "HP.")
 	}
+}
+
+type Equipment struct {
+	Head string // Chapeau
+	Body string // Tunique
+	Feet string // Bottes
 }

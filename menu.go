@@ -29,7 +29,7 @@ func menu(player *Character) {
 
 		case 2:
 			fmt.Println()
-			accessInventory(*player)
+			accessInventory(player)
 
 		case 3:
 			fmt.Println()
