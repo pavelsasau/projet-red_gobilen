@@ -1,9 +1,9 @@
 package main
 
- import "fmt"
+import "fmt"
 
 func blacksmithMenu(c *Character) {
-	for{
+	for {
 		fmt.Println("\n=== FORGERON ===")
 		fmt.Printf("Votre bourse : %d pièces d'or\n", c.Gold)
 		fmt.Println("1. Chapeau de l'aventurier (1 Plume de Corbeau, 1 Cuir de Sanglier + 5 Gold)")
@@ -15,7 +15,7 @@ func blacksmithMenu(c *Character) {
 		var choice int
 		fmt.Scan(&choice)
 
-		switch choice{
+		switch choice {
 		case 1:
 			craftItem(c, "Chapeau de l'aventurier", map[string]int{"Plume de Corbeau": 1, "Cuir de Sanglier": 1})
 		case 2:
