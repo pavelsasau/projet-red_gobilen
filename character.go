@@ -116,13 +116,14 @@ func showEquip(item string) string {
 
 // Vérifie si le personnage est mort et lui rend 50 % de ses PV maximum.
 // Проверяет, умер ли персонаж, и восстанавливает ему 50% максимального здоровья.
-func isDead(player *Character) {
-	if player.CurrentHP <= 0 {
-		player.CurrentHP = player.MaxHP / 2
-
-		fmt.Println("Le personnage est mort.")
-		fmt.Println("Il revient avec", player.CurrentHP, "HP.")
+func isDead(c *Character) bool {
+	if c.CurrentHP <= 0 {
+		fmt.Println("\nVous êtes mort...")
+		c.CurrentHP = c.MaxHP / 2 // Résurrection à 50% des PV max (Tâche 8)
+		fmt.Printf("Vous avez été ressuscité avec %d/%d PV !\n", c.CurrentHP, c.MaxHP)
+		return true // Le joueur était bien mort
 	}
+	return false // Le joueur est encore en vie
 }
 
 type Equipment struct {
