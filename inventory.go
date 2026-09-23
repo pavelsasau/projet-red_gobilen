@@ -38,7 +38,7 @@ func accessInventory(c *Character) {
 
 // Ajoute un objet à l'inventaire
 func addInventory(c *Character, item string) bool {
-    if len(c.Inventory) >= 10 { // Limite d'inventaire (Tâche 12)
+    if len(c.Inventory) >= c.MaxInventory { // Limite d'inventaire (Tâche 12)
         fmt.Println("Inventaire plein ! Impossible d'ajouter l'objet.")
         return false // Échec de l'ajout
     }
@@ -85,4 +85,15 @@ func useItem(c *Character, item string) {
 	default:
 		fmt.Printf("\nL'objet '%s' ne peut pas être utilisé directement.\n", item)
 	}
+}
+
+func upgradeInventorySlot(c *Character) {
+	if c.UpgradeCount >= 3 {
+		fmt.Println("\nVous avez atteint la limite maximale d'améliorations d'inventaire (3/3).")
+		return
+	}
+
+	c.MaxInventory += 10
+	c.UpgradeCount++
+	fmt.Printf("\nInventaire agrandi ! Nouvelle capacité : %d emplacements (Améliorations : %d/3).\n", c.MaxInventory, c.UpgradeCount)
 }

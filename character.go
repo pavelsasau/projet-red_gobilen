@@ -17,6 +17,8 @@ type Character struct {
 	Skill     []string
 	Inventory []string
 	Equip     Equipment // Nouveau champ pour les équipements portés
+	MaxInventory    int // Capacité max (par défaut : 10)
+	UpgradeCount    int // Nombre d'améliorations déjà achetées (max : 3)
 }
 
 func characterCreation() Character {
@@ -87,6 +89,8 @@ for {
 		Gold:      100,
 		Inventory: []string{"Potion de vie", "Potion de vie", "Potion de vie"},
 		Skill:     []string{"Coup de poing"},
+		MaxInventory: 10,
+		UpgradeCount: 0,
 	}
 }
 
