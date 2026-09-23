@@ -38,13 +38,13 @@ func accessInventory(c *Character) {
 
 // Ajoute un objet à l'inventaire
 func addInventory(c *Character, item string) bool {
-	if len(c.Inventory) >= c.MaxInventory { // Limite d'inventaire (Tâche 12)
-		fmt.Println("Inventaire plein ! Impossible d'ajouter l'objet.")
-		return false // Échec de l'ajout
-	}
+    if len(c.Inventory) >= c.MaxInventory { // Limite d'inventaire (Tâche 12)
+        fmt.Println("Inventaire plein ! Impossible d'ajouter l'objet.")
+        return false // Échec de l'ajout
+    }
 
-	c.Inventory = append(c.Inventory, item)
-	return true // Succès de l'ajout
+    c.Inventory = append(c.Inventory, item)
+    return true // Succès de l'ajout
 }
 
 // Retire un objet de l'inventaire
@@ -79,7 +79,7 @@ func useItem(c *Character, item string) {
 	case "Potion de poison":
 		fmt.Println("\nLa potion de poison ne peut être utilisée que pendant un combat !")
 	case "Livre de Sort : Boule de Feu":
-		spellBook(c)
+		spellBook(c, item)
 	case "Chapeau de l'aventurier", "Tunique de l'aventurier", "Bottes de l'aventurier":
 		equipItem(c, item)
 	default:
