@@ -26,7 +26,7 @@ func merchantMenu(c *Character) {
 		case 2:
 			buyItems(c, "Potion de poison", 6)
 		case 3:
-			buyItems(c, "Livre de Sort", 25)
+			buyItems(c, "Livre de Sort : Boule de Feu", 25)
 		case 4:
 			buyItems(c, "Fourrure de Loup", 4)
 		case 5:
@@ -47,7 +47,7 @@ func merchantMenu(c *Character) {
 }
 
 // Fonction générique qui gère l'achat, la déduction d'or et l'ajout à l'inventaire
-func buyItems(c *Character, itemName string, price int){
+func buyItems(c *Character, itemName string, price int) {
 	// 1. Vérification si le joueur a assez d'or
 	if c.Gold < price {
 		fmt.Printf("\nVous n'avez pas assez d'or pour acheter %s ! (Prix : %d Gold, Solde : %d Gold)\n", itemName, price, c.Gold)
@@ -56,8 +56,8 @@ func buyItems(c *Character, itemName string, price int){
 	// 2. Ajout de l'objet à l'inventaire
 	if addInventory(c, itemName) {
 		c.Gold -= price // 3. Déduction de l'or si l'objet peut être ajouter a l'inventaire
-	// 4. Confirmation de l'achat
-	fmt.Printf("\nAchat réussi : %s pour %d pièces d'or ! Solde restant : %d Gold.\n", itemName, price, c.Gold)
+		// 4. Confirmation de l'achat
+		fmt.Printf("\nAchat réussi : %s pour %d pièces d'or ! Solde restant : %d Gold.\n", itemName, price, c.Gold)
 	} else {
 		fmt.Println("L'achat a été annulé car votre inventaire est plein.")
 	}
