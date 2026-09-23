@@ -38,13 +38,13 @@ func accessInventory(c *Character) {
 
 // Ajoute un objet à l'inventaire
 func addInventory(c *Character, item string) bool {
-    if len(c.Inventory) >= c.MaxInventory { // Limite d'inventaire (Tâche 12)
-        fmt.Println("Inventaire plein ! Impossible d'ajouter l'objet.")
-        return false // Échec de l'ajout
-    }
+	if len(c.Inventory) >= c.MaxInventory { // Limite d'inventaire (Tâche 12)
+		fmt.Println("Inventaire plein ! Impossible d'ajouter l'objet.")
+		return false // Échec de l'ajout
+	}
 
-    c.Inventory = append(c.Inventory, item)
-    return true // Succès de l'ajout
+	c.Inventory = append(c.Inventory, item)
+	return true // Succès de l'ajout
 }
 
 // Retire un objet de l'inventaire
